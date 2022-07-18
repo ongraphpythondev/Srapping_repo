@@ -1,0 +1,28 @@
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'custom.js' %}"/>
+    <meta charset="UTF-8">
+    <title>Scrapring</title>
+</head>
+<body>
+<form method="GET" action="/scrap_times/">
+<input type="text" name="search" placeholder="Enter skill" value="{{search}}">
+<button type="submit" id="search_jo">Go</button>
+</form>
+{% for i in data %}
+
+<div class="card" style="width: auto">
+  <div class="card-body">
+    <h3 class="card-title">{{i.company_name}}</h3>
+      <h5>Skills:-  {{i.skills}}</h5>
+    <p class="card-text">Description:-  {{i.description}}</p>
+    <a href="{{i.apply}}" class="card-text" target="_blank">Apply</a>
+  </div>
+</div>
+<br/>
+
+{% endfor %}
+</body>
+
+</html>
